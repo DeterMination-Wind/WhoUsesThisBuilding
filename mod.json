@@ -3,7 +3,7 @@
   "displayName": "WhoUsesThisBuilding | 谁在用这个建筑",
   "author": "DeterMination + Codex",
   "description": "[accent]EN[]\nHold the trigger hotkey while hovering any building to highlight all logic processors that reference it.\n- Reverse view: from building -> processors.\n- Label format: LN(opcode), for example L20(sensor).\n- Supports both explicit logic links and world processor getblock(x, y) indirect access.\n- Visual style follows vanilla logic link highlight, but uses [sky]sky[] blue squares.\n\n[accent]中文[]\n按住触发热键并将鼠标悬停在任意建筑上时，本模组会高亮所有引用该建筑的逻辑处理器。\n- 反向显示：从建筑反查到处理器。\n- 标签格式：LN(opcode)，例如 L20(sensor)。\n- 同时支持显式链接和 world processor 的 getblock(x, y) 间接引用。\n- 显示风格保持原版逻辑高亮，仅将方框改为 [sky]sky[] 蓝色。",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minGameVersion": "154",
   "main": "whousesthisbuilding.WhoUsesThisBuildingMod",
   "java": true
