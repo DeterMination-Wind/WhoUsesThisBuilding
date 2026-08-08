@@ -1,4 +1,10 @@
 # WhoUsesThisBuilding
+<h1 align="center">
+  <a href="https://github.com/DeterMination-Wind/WhoUsesThisBuilding/releases/latest"><img src="https://img.shields.io/github/v/release/DeterMination-Wind/WhoUsesThisBuilding?display_name=release&label=Latest%20Release&color=green"></a>
+  <a href="https://github.com/DeterMination-Wind/WhoUsesThisBuilding/releases"><img src="https://img.shields.io/github/downloads/DeterMination-Wind/WhoUsesThisBuilding/total?label=Downloads&color=blue"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/DeterMination-Wind/WhoUsesThisBuilding?label=License"></a>
+  <a href="https://github.com/DeterMination-Wind/WhoUsesThisBuilding"><img src="https://img.shields.io/github/stars/DeterMination-Wind/WhoUsesThisBuilding?style=flat&label=Star%20this%20mod!&color=yellow"></a>
+</h1>
 
 WhoUsesThisBuilding is a helper mod for Mindustry logic building workflow.  
 It answers one practical question in seconds:
