@@ -43,3 +43,33 @@ Great for:
 
 The goal is simple: **less hunting, faster understanding.**
 
+---
+
+## 设置 / Settings
+
+可在游戏内设置界面（设置 → WhoUsesThisBuilding）中调整：
+
+| 设置项 | 默认值 | 说明 |
+| --- | --- | --- |
+| 启用反向逻辑高亮 (Enable) | 开 | 总开关，关闭后清除所有高亮 |
+| 触发热键 (Hotkey) | **Alt**（左 Alt） | 悬停建筑时按住即触发；点击可录制自定义按键 |
+| 标签字体大小 (Font size) | 100% | 范围 **50% – 300%**，步进 5% |
+
+- 热键可在设置中点击按钮重新录制，按 Esc 取消；存储与解析同时兼容左右 Alt（默认 `altleft`）。
+- 标签格式：`LN(opcode)`，例如 `L20(sensor)`。
+
+## 地图编辑器支持 / Map Editor Support
+
+支持 Mindustry 地图编辑器：在编辑器内悬停建筑并按住热键同样生效，且会检查所有处理器（不限于己方队伍）。游戏内模式默认只分析己方队伍及特权处理器的逻辑。
+
+## 构建与安装 / Build & Install
+
+依赖：JDK 17+（字节码以 Java 8 目标编译），Mindustry `v155.4`（`minGameVersion: 154`），Windows/Linux/macOS 均可。
+
+```bash
+./gradlew jar          # 桌面版 → build/libs/WhoUsesThisBuildingDesktop.jar
+./gradlew deploy       # 合并桌面+Android → build/libs/WhoUsesThisBuilding.jar，并复制到 dist/ 与 构建/ 目录
+./gradlew zipMerged    # 打包 zip 发布产物
+```
+
+安装：将 `dist/WhoUsesThisBuilding.jar` 放入 Mindustry 模组目录并重启游戏（Steam 版为 `steamapps/common/Mindustry/mods`，桌面版为 `%appdata%/Mindustry/mods`）。Android 打包需要本机有 Android SDK（d8），否则 `deploy` 会回退为仅桌面产物。
