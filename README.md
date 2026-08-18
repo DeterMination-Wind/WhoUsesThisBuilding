@@ -1,75 +1,43 @@
-# WhoUsesThisBuilding
-<h1 align="center">
-  <a href="https://github.com/DeterMination-Wind/WhoUsesThisBuilding/releases/latest"><img src="https://img.shields.io/github/v/release/DeterMination-Wind/WhoUsesThisBuilding?display_name=release&label=Latest%20Release&color=green"></a>
-  <a href="https://github.com/DeterMination-Wind/WhoUsesThisBuilding/releases"><img src="https://img.shields.io/github/downloads/DeterMination-Wind/WhoUsesThisBuilding/total?label=Downloads&color=blue"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/DeterMination-Wind/WhoUsesThisBuilding?label=License"></a>
-  <a href="https://github.com/DeterMination-Wind/WhoUsesThisBuilding"><img src="https://img.shields.io/github/stars/DeterMination-Wind/WhoUsesThisBuilding?style=flat&label=Star%20this%20mod!&color=yellow"></a>
-</h1>
+# WhoUsesThisBuilding / 谁在用这个建筑
 
-WhoUsesThisBuilding is a helper mod for Mindustry logic building workflow.  
-It answers one practical question in seconds:
+> 从一个建筑反查依赖它的逻辑处理器，少找一会儿，多理解一点。
 
-**"Which processors are using this building right now?"**
+WhoUsesThisBuilding 是面向 Mindustry 逻辑创作的排错工具。当某个建筑被改动、替换或出现异常时，你可以直接从建筑反查哪些处理器正在使用它，而不必在整张地图里逐个打开处理器猜测依赖关系。
 
----
+它适合大型逻辑图、多人地图维护和需要快速定位引用关系的创作者。显示结果只帮助你理解现有逻辑，不会自动修改程序。
 
-## 中文介绍
+## 使用
 
-WhoUsesThisBuilding 是一个专注于“逻辑排查体验”的辅助模组。  
-当你在地图中悬停到某个建筑并按下热键时，它会直接把“正在引用这个建筑”的逻辑处理器高亮出来，并给出简洁标签。
+在游戏或地图编辑器中悬停建筑，按住模组热键即可查看引用它的处理器。热键和显示大小可在设置中调整。
 
-它适合这些场景：
+## 构建与安装
 
-- 逻辑工程太大，不知道某个建筑被谁在用
-- 修改/替换建筑前，想先确认影响范围
-- 游戏内编辑时，需要快速追踪逻辑引用关系
-- 和队友协作排查逻辑问题时，想要一眼看懂结构
+需要 JDK 17+。将 Release 或 dist/ 中的模组 JAR 放入 Mindustry 的 mods 目录并重启游戏。
 
-这个模组的目标不是改变逻辑玩法，而是让你在复杂逻辑图里定位更快、排错更轻松。
-
----
+~~~powershell
+.\gradlew.bat jar
+.\gradlew.bat deploy
+.\gradlew.bat zipMerged
+~~~
 
 ## English
 
-WhoUsesThisBuilding is a quality-of-life mod for logic-heavy Mindustry maps.  
-Hover a building, hold the hotkey, and it highlights processors that reference that building.
+> Trace a building back to the processors that depend on it.
 
-Great for:
+WhoUsesThisBuilding is a troubleshooting tool for Mindustry logic work. When a building changes or behaves unexpectedly, it shows which processors use that building so you can find the relevant logic without opening every processor on the map.
 
-- Large logic systems where dependencies are hard to track
-- Safe refactoring before replacing/removing a building
-- Fast reference tracing during in-game editing
-- Team debugging sessions on shared maps
+It is useful for large logic graphs, multiplayer map maintenance, and creators who need to understand dependencies quickly. The mod only explains the existing logic; it does not rewrite programs automatically.
 
-The goal is simple: **less hunting, faster understanding.**
+## Usage
 
----
+Hover a building in-game or in the map editor and hold the mod hotkey to inspect the processors that reference it. The hotkey and label size can be changed in the settings.
 
-## 设置 / Settings
+## Build and install
 
-可在游戏内设置界面（设置 → WhoUsesThisBuilding）中调整：
+JDK 17+ is required. Put the release or dist/ JAR in Mindustry's mods directory and restart the game.
 
-| 设置项 | 默认值 | 说明 |
-| --- | --- | --- |
-| 启用反向逻辑高亮 (Enable) | 开 | 总开关，关闭后清除所有高亮 |
-| 触发热键 (Hotkey) | **Alt**（左 Alt） | 悬停建筑时按住即触发；点击可录制自定义按键 |
-| 标签字体大小 (Font size) | 100% | 范围 **50% – 300%**，步进 5% |
-
-- 热键可在设置中点击按钮重新录制，按 Esc 取消；存储与解析同时兼容左右 Alt（默认 `altleft`）。
-- 标签格式：`LN(opcode)`，例如 `L20(sensor)`。
-
-## 地图编辑器支持 / Map Editor Support
-
-支持 Mindustry 地图编辑器：在编辑器内悬停建筑并按住热键同样生效，且会检查所有处理器（不限于己方队伍）。游戏内模式默认只分析己方队伍及特权处理器的逻辑。
-
-## 构建与安装 / Build & Install
-
-依赖：JDK 17+（字节码以 Java 8 目标编译），Mindustry `v155.4`（`minGameVersion: 154`），Windows/Linux/macOS 均可。
-
-```bash
-./gradlew jar          # 桌面版 → build/libs/WhoUsesThisBuildingDesktop.jar
-./gradlew deploy       # 合并桌面+Android → build/libs/WhoUsesThisBuilding.jar，并复制到 dist/ 与 构建/ 目录
-./gradlew zipMerged    # 打包 zip 发布产物
-```
-
-安装：将 `dist/WhoUsesThisBuilding.jar` 放入 Mindustry 模组目录并重启游戏（Steam 版为 `steamapps/common/Mindustry/mods`，桌面版为 `%appdata%/Mindustry/mods`）。Android 打包需要本机有 Android SDK（d8），否则 `deploy` 会回退为仅桌面产物。
+~~~powershell
+.\gradlew.bat jar
+.\gradlew.bat deploy
+.\gradlew.bat zipMerged
+~~~
